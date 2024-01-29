@@ -20,12 +20,17 @@ function findMovie(movieTitle) {
     }
     //console.log(Movie);
   }
-  //console.log(Movie);
+  console.log(Movie);
 }
 
-findMovie("Top Gun");
-console.log(Movie);
 
+findMovie("Top Gun");
+
+var Movie = "Thor: Ragnorok";
+console.log(Movie); //just Movie without variable causes reference errors
+
+findMovie(Movie);
+console.log(Movie);
 // Part 2 = Create a function to return a movie object
 
 
