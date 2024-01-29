@@ -12,7 +12,7 @@ const movies = [
 
 // Part 1 - Create a function to find a movie and output it's detail
 
-function findMovie(movieTitle) {
+/* function findMovie(movieTitle) {
 
   for (let Movie of movies){
     if (Movie.title === movieTitle) {
@@ -26,11 +26,28 @@ function findMovie(movieTitle) {
 
 findMovie("Top Gun");
 
-var Movie = "Thor: Ragnorok";
+var Movie = "Thor: Ragnorok"; //var allows
 console.log(Movie); //just Movie without variable causes reference errors
 
 findMovie(Movie);
-console.log(Movie);
+console.log(Movie); */
+
+
+
 // Part 2 = Create a function to return a movie object
 
 
+function returnMovie (movieTitle){
+
+  for (let movie of movies){
+    if (movie.title === movieTitle){
+      return movie;
+    }
+    console.log(movie);
+  }
+  console.log("Any text, any text at all");
+
+}
+
+let myMovie = returnMovie("Avengers: Infinity War");
+console.log(myMovie);
