@@ -23,7 +23,7 @@ function findMovie(movieTitle) {
   //console.log(Movie);
 }
 
-findMovie("No");
+findMovie("Top Gun");
 console.log(Movie);
 
 // Part 2 = Create a function to return a movie object
