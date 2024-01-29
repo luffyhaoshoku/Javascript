@@ -41,13 +41,47 @@ function returnMovie (movieTitle){
 
   for (let movie of movies){
     if (movie.title === movieTitle){
-      return movie;
+      return movie; // returns when matched
     }
-    console.log(movie);
+    console.log(movie); //returns anything entries in dcitionary beforehand
   }
-  console.log("Any text, any text at all");
+  //console.log("Any text, any text at all");
+  return "Movie Not Found!"; // ends loop with returned value
 
 }
 
 let myMovie = returnMovie("Avengers: Infinity War");
 console.log(myMovie);
+
+//properties of myMovie
+console.log(`The movie ${myMovie.title} directed by ${myMovie.director} was made in ${myMovie.year}`);
+
+
+let myOtherMovie = returnMovie("Thor: Ragnorok");
+console.log(myOtherMovie); //what is undefined?
+
+
+
+/*
+Create a function called myMovieDetails that takes a variable anyMovie as an argument.
+38.
+Check that the typeof anyMovie is an 'object' and return a suitable string if it’s and simply return anyMovie if it’sn't.
+39.
+Inside a console.log, call myMovieDetails with an argument of myOtherMovie.
+40.
+Observe the results.
+It should output: Movie not found. */
+
+function myMovieDetails (anyMovie){
+  if (typeof anyMovie === "object"){
+    return (`The movie ${myMovie.title} directed by ${myMovie.director} was made in ${myMovie.year}`);
+  }
+  else{
+    return anyMovie;
+  }
+  
+}
+console.log(myMovieDetails(myOtherMovie)) //showing movie not found as "thor raggy"
+console.log(myMovieDetails(returnMovie("Jaws"))); 
+
+
