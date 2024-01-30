@@ -20,9 +20,28 @@ function blueToRed() { //button calls in function
     blueParagraph.textContent = blueParagraph.textContent.replace('blue', 'red');
 }
 
-const greenParagraphs = document.querySelectorAll(".greenBg");
+const greenParagraphs = document.querySelectorAll(".greenBg"); 
 console.log(greenParagraphs[0].style.color); 
 console.log(getComputedStyle(greenParagraphs[0]).color);
-function greenToPink() {}
+
+function greenToPink() {
+
+    for (let greenParagraph of greenParagraphs){
+        greenParagraph.className = 'hotpinkBg';
+        console.log(greenParagraph.style.backgroundColor);
+        console.log(getComputedStyle(greenParagraph).backgroundColor);
+        greenParagraph.textContent = greenParagraph.textContent.replace('green', 'pink');
+        
+    }
+
+
+
+
+
+
+
+
+
+}
 
 function tnrToArial() {}
