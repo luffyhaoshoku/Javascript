@@ -35,5 +35,38 @@ function tnrToArial() {
     tnrParagraph.textContent = tnrParagraph.textContent.replace("Times New Roman", "Arial");
 }
 
+
+
+
+
 // Add the event handlers for mouse over, mouse out and click on tnrParagraph here and register them
 
+
+const mouseOver = event => {
+    event.target.style.backgroundColor = 'limegreen';
+    if(event.target.textContent.indexOf('background') === -1) { //not found =-1
+
+        event.target.textContent += ', I have had my background changed on mouse over';
+    }
+    else {
+        event.target.textContent = event.target.textContent.replace("out", "over");
+    }
+};
+
+tnrParagraph.addEventListener('mouseover', mouseOver);
+
+
+ //cannot access mouseOut before initialisation
+
+const mouseOut = event => {
+    event.target.style.backgroundColor = 'yellow';
+    if(event.target.textContent.indexOf('background') === -1) { //not found =-1
+
+        event.target.textContent += ', I have had my background changed on mouseOUT';
+    }
+    else {
+        event.target.textContent = event.target.textContent.replace("over", "out");
+    }
+
+}
+tnrParagraph.addEventListener('mouseout', mouseOut);
