@@ -31,17 +31,18 @@ function greenToPink() {
         console.log(greenParagraph.style.backgroundColor);
         console.log(getComputedStyle(greenParagraph).backgroundColor);
         greenParagraph.textContent = greenParagraph.textContent.replace('green', 'pink');
-        
+
     }
-
-
-
-
-
-
-
-
-
 }
 
-function tnrToArial() {}
+const tnrParagraph = document.querySelector("#tnrParagraph"); //queryselector works with any css selector
+console.log(tnrParagraph.style.fontFamily);
+console.log(getComputedStyle(tnrParagraph).fontFamily);
+
+
+function tnrToArial() {
+    tnrParagraph.style.fontFamily = "arial";
+    console.log(tnrParagraph.style.fontFamily);
+    console.log(getComputedStyle(tnrParagraph).fontFamily);
+    tnrParagraph.textContent = tnrParagraph.textContent.replace('Time New Roman', 'Arial');
+}
