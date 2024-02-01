@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Events</title>
 
+
+        <script src="databind.js" defer></script>
         <script>
 
             let action = function(e){
@@ -17,58 +19,12 @@
                 "telephone": "123"
             };
 
-            let dataBind = function(){
-
-            };
-
-            dataBind.get = function(key){
-                return data[key];
-
-            }
-
-
-            databind.set = function(key,value){
-                data[key] = value;
-            }
-
-
-
-            databind.set = function(key,value){
-            data[key] = value;
-        }
-
-
-
-
-        databind.display = function(){
-            document.querySelectorAll('[name], [data]').forEach(function(item)){
-                if(item.name == undefined){
-                    let key = item.getAttribute("data");
-                    if(data[key] !== undefined){
-                        item.innerText = data[key];
-                    }
-                }
-                else{
-                    let key = item.name;
-                    if(data[key] !== undefined){
-                        item.value = data[key];
-                    }
-            }};
-        }
-
-        dataBind.save = function(){
-            console.log(JSON.stringify(data))
-            sessionStorage.setItem('data', JSON.stringify(data))
-        }
-
-
-
-
+            
 
         let addItem = function(templateName, targetSelector){
             let parentNode = document.querySelector(targetSelector);
 
-            let template = document.querySelector(`[data-template="${templateName}`])
+            let template = document.querySelector()`[data-template="${templateName}"]').innerHTML
             template = template.replaceAll("{count}", parentNode.children.length)
 
             let node = document.createElement("div");
@@ -76,21 +32,10 @@
             parentNode.appendChild(node);
         }
 
-        window.addEventListener("load", function(){
-
-            dataBind.display();
-
-            document.querySelector('form').addEventListener("input", function(e))
-            dataBind
-        })
-
-
         </script>
+     </head>
 
-
-
-
-    </head>
+     
     <body>
 
         <input type="button" value="Add Item"
@@ -114,6 +59,13 @@
 
             <h3 data="telephone"></h3>
 
+            <textarea name="telephone"></textarea>
+
+            <div id="itemList">
+            </div>
+            <input type="button" value="Add Item"
+            onclick="addItem('itemA', '#itemList')"/>
+
 
             
             
@@ -125,9 +77,15 @@
 
         <template data-template = "itemA">
             <span>Item</span>
+            <span> - </span>
+            <span> input name="telephone{count}"</span>
         </template>
 
-
+        <template data-template = "item8">
+            <span>Item</span>
+            <span> - </span>
+            <span> input name="telephone{count}"</span>
+        </template>
 
 
 
