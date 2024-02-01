@@ -7,7 +7,11 @@ let dataBind = function(){
 };
 
 dataBind.get = function(key){
-    return data[key];
+    let field = data;
+    key.split(".").forEach(function(item){
+        field = field[item];
+    });
+    return field;
 
 }
 
@@ -22,14 +26,14 @@ dataBind.display = function(){
     document.querySelectorAll('[name], [data]').forEach(function(item){
         if(item.name == undefined){
             let key = item.getAttribute("data");
-            if(data[key] !== undefined){
-                item.innerText = data[key];
+            if(dataBind.get(key) !== undefined){
+                item.innerText = dataBind.get(key);
             }
         }
         else{
             let key = item.name;
-            if(data[key] !== undefined){
-                item.value = data[key];
+            if(dataBind.get(key) !== undefined){
+                item.value = dataBind.get(key); //using get instead of referenceing directly bc 
             }
         }
     });
