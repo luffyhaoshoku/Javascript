@@ -25,20 +25,21 @@ data[key] = value;
 
 
 
-databind.display = function(){
-document.querySelectorAll('[name], [data]').forEach(function(item)){
-    if(item.name == undefined){
-        let key = item.getAttribute("data");
-        if(data[key] !== undefined){
-            item.innerText = data[key];
+dataBind.display = function(){
+    document.querySelectorAll('[name], [data]').forEach(function(item){
+        if(item.name == undefined){
+            let key = item.getAttribute("data");
+            if(data[key] !== undefined){
+                item.innerText = data[key];
+            }
         }
-    }
-    else{
-        let key = item.name;
-        if(data[key] !== undefined){
-            item.value = data[key];
+        else{
+            let key = item.name;
+            if(data[key] !== undefined){
+                item.value = data[key];
+            }
         }
-}};
+    });
 }
 
 dataBind.save = function(){

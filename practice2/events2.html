@@ -6,11 +6,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Events2</title>
 
+        <script src="databind.js" defer></script>
 
         
         <script>
 
+           /* let data = {
+                "telephone": "123456",
+                "address": "abc"
+
+            }*/$
+
+        let data = JSON.parse(  sessionStorage.getItem("data"));
+        
         </script>
+
+    </head>
 
         <body>
 
@@ -18,7 +29,4 @@
             <p>Telephone:<span data="telephone"></span></p>
             <p>Address:<span data="address"></span></p>
         </body>
-
-
-
-    </head>
+</html>

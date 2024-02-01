@@ -6,26 +6,25 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Events</title>
 
-
         <script src="databind.js" defer></script>
+
         <script>
-
-            let action = function(e){
-                    alert(786);
-                    console.log(e);
-            }
-
+        let action = function(e){
+            alert(786)
+            console.log(e)
+        }
+        
             let data = {
                 "telephone": "123"
             };
 
             
 
-        let addItem = function(templateName, targetSelector){
+            let addItem = function(templateName, targetSelector){
             let parentNode = document.querySelector(targetSelector);
 
-            let template = document.querySelector()`[data-template="${templateName}"]').innerHTML
-            template = template.replaceAll("{count}", parentNode.children.length)
+            let template = document.querySelector(`[data-template="${templateName}"]`).innerHTML;
+            template = template.replaceAll("{count}", parentNode.children.length);
 
             let node = document.createElement("div");
             node.innerHTML = template;
@@ -35,23 +34,23 @@
         </script>
      </head>
 
-     
-    <body>
 
-        <input type="button" value="Add Item"
-        onclick="addItem('itemA', '#anotherItemList')"/>
+     <body>
+        <input type="button" value="Add Item" 
+        onclick="addItem('itemB','#anotherItemList')"/>
+
+        <input type="button" value="save"  onclick = "dataBind.save()">
+        
 
         <div id="anotherItemList">
         </div>
 
-
         <form>
-            
             <button>Click me</button>
             <button>Click me</button>
-            <input name = "telephone"/>
+            <input name="telephone" />
 
-            <input name="address"/>
+            <input name="address" />
 
             <h1 data="telephone"></h1>
 
@@ -63,35 +62,25 @@
 
             <div id="itemList">
             </div>
-            <input type="button" value="Add Item"
-            onclick="addItem('itemA', '#itemList')"/>
+            <input type="button" value="Add Item" 
+                onclick="addItem('itemA','#itemList')"
+            />
 
 
-            
-            
         </form>
 
-
-
-
-
-        <template data-template = "itemA">
+        <template data-template="itemA">
             <span>Item</span>
             <span> - </span>
-            <span> input name="telephone{count}"</span>
-        </template>
-
-        <template data-template = "item8">
-            <span>Item</span>
+            <span><input name="telephone{count}" /></span>
+        </template>   
+        
+        
+        <template data-template="itemB">
+            <span>*****</span>
             <span> - </span>
-            <span> input name="telephone{count}"</span>
-        </template>
-
-
+            <span><textarea name="address{count}"></textarea></span>
+        </template>   
 
     </body>
-
-
-
-
 </html>
