@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Events</title>
+
+        <script>
+
+            let action = function(e){
+                    alert(786);
+                    console.log(e);
+            }
+
+            let data = {
+                "telephone": "123"
+            };
+
+            let dataBind = function(){
+
+            };
+
+            dataBind.get = function(key){
+                return data[key];
+
+            }
+
+
+            databind.set = function(key,value){
+                data[key] = value;
+            }
+
+
+
+            databind.set = function(key,value){
+            data[key] = value;
+        }
+
+
+
+
+        databind.display = function(){
+            document.querySelectorAll('[name], [data]').forEach(function(item)){
+                if(item.name == undefined){
+                    let key = item.getAttribute("data");
+                    if(data[key] !== undefined){
+                        item.innerText = data[key];
+                    }
+                }
+                else{
+                    let key = item.name;
+                    if(data[key] !== undefined){
+                        item.value = data[key];
+                    }
+            }};
+        }
+
+        dataBind.save = function(){
+            console.log(JSON.stringify(data))
+            sessionStorage.setItem('data', JSON.stringify(data))
+        }
+
+
+
+
+
+        let addItem = function(templateName, targetSelector){
+            let parentNode = document.querySelector(targetSelector);
+
+            let template = document.querySelector(`[data-template="${templateName}`])
+            template = template.replaceAll("{count}", parentNode.children.length)
+
+            let node = document.createElement("div");
+            node.innerHTML = template;
+            parentNode.appendChild(node);
+        }
+
+        window.addEventListener("load", function(){
+
+            dataBind.display();
+
+            document.querySelector('form').addEventListener("input", function(e))
+            dataBind
+        })
+
+
+        </script>
+
+
+
+
+    </head>
+    <body>
+
+        <input type="button" value="Add Item"
+        onclick="addItem('itemA', '#anotherItemList')"/>
+
+        <div id="anotherItemList">
+        </div>
+
+
+        <form>
+            
+            <button>Click me</button>
+            <button>Click me</button>
+            <input name = "telephone"/>
+
+            <input name="address"/>
+
+            <h1 data="telephone"></h1>
+
+            <textarea name="address"></textarea>
+
+            <h3 data="telephone"></h3>
+
+
+            
+            
+        </form>
+
+
+
+
+
+        <template data-template = "itemA">
+            <span>Item</span>
+        </template>
+
+
+
+
+
+    </body>
+
+
+
+
+</html>
