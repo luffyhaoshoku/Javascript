@@ -12,16 +12,9 @@ dataBind.get = function(key){
 }
 
 
-databind.set = function(key,value){
+dataBind.set = function(key,value){
     data[key] = value;
 }
-
-
-
-databind.set = function(key,value){
-data[key] = value;
-}
-
 
 
 

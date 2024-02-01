@@ -15,10 +15,17 @@
                 "telephone": "123456",
                 "address": "abc"
 
-            }*/$
+            }*/
 
         let data = JSON.parse(  sessionStorage.getItem("data"));
         
+        fetch("https://dummyjson.com/users/1")
+            .then(result => result.json())
+            .then(function(details){
+                console.log(details);
+                data = details;
+                dataBind.display();
+            });
         </script>
 
     </head>
@@ -28,5 +35,11 @@
             <h1>Display Data</h1>
             <p>Telephone:<span data="telephone"></span></p>
             <p>Address:<span data="address"></span></p>
+
+            <p>Age: <span data = "age"></span></p>
+
+            <p>Forename: <span data = "firstName"></span></p>
+
+            <p>Eye Colour: <span data = "eyeColor"></span></p>
         </body>
 </html>
