@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        <script>
+            class Phone{
+
+                speaker = "ZZZZ";
+                microphone = "AAAA";
+                number = "01234586773";
+
+                
+                constructor(config={}){
+                    !config.telNumber ? alert(" You need to provide a telephone number")
+                    console.log("I am a phone that was created")
+                    this.number = config.telNumber;
+
+                }
+                call(telNumber){
+                    alert("Ring ring! " + telNumber + " : " + this.number)
+                }
+            }
+
+            class Smartphone extends Phone{
+                display = "big";
+            }
+            
+                //constructor() method named called constructor 
+
+            /*  constructor(telNumber="1213"){
+                    console.log("I am a phone that was created")
+                    this.number = telNumber; //created a class with propety "telnumber"
+                    //not an object. template for JS objects
+
+                }*/
+
+            
+
+            let myPhone = new Phone();
+                console.log(myPhone, myPhone.number)
+
+            let yourPhone = new Phone();
+            yourPhone.number = "012454613613"
+            console.log(yourPhone)
+            console.log(yourPhone.number)
+        </script>
+
+
+        
+
+
+
+
+    </body>
+
+
+
+
+</html>
