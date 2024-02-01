@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice</title>
+
+    <script>
+
+        let action = function(e){
+                alert(786);
+                console.log(e);
+            }
+
+        let data = {};
+
+        let dataBind = function(){
+
+            };
+
+        dataBind.get = function(key){
+             return data[key];
+
+        }
+
+
+        databind.set = function(key,value){
+            data[key] = value;
+        }
+
+        databind.display = function(){
+            document.querySelectorAll('[name], [data]').forEach(function(item)){
+                let key = item.name;
+                if(key == undefined){
+                    key = item.getAttribute("data");
+                    item.innerText = data[key];
+                }
+                else{
+                    item.value = data[item.name];
+                }
+            }
+        }
+
+        window.addEventListener("load", function() {
+            document.querySelector('form').addEventListener("input", function(e)
+            {
+                dataBind.set(e.target.name, e.target.value);
+            })
+        })
+
+    </script>
+
+    <body>
+        <form>
+            <button>Click me</button>
+            <button>Click me 2</button>
+
+            <input name = "telephone">
+            <input name = "address">
+            
+            
+            
+        </form>
+        
+        
+        
+        
+        
+        
+        
+    </body>
+
+</html>
